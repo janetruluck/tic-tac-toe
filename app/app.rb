@@ -23,10 +23,13 @@ class App < Sinatra::Base
     serve '/css', from: 'assets/stylesheets'
     serve '/img', from: 'assets/images'
 
-    js :application, []
+    js :application, [
+      "/js/game.js"
+    ]
 
     css :app, '/css/application.css', [
-      "/css/bootstrap.css"
+      "/css/bootstrap.css",
+      "/css/board.css"
     ]
 
     js_compression  :jsmin
@@ -35,5 +38,11 @@ class App < Sinatra::Base
 
   get '/' do
     haml :index
+  end
+
+  post '/api/ai_move' do
+    content_type :json
+    data = JSON.parse(request.body.read)
+    Game.new(data["cells"], data['piece']).perfect_move.to_json
   end
 end
