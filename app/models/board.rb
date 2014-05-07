@@ -23,6 +23,10 @@ class Board
     moves
   end
 
+  def blank_board?
+    blank_cells.count == size**2
+  end
+
   def cell_indexes
     board_cells.each_index do |row|
       board_cells[row].each_index do |column|

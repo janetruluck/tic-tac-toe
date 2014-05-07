@@ -1,7 +1,7 @@
 # spec/models/board_spec.rb
 require "spec_helper"
 
-describe Board do 
+describe Board do
   describe ".new" do
     let(:board) { Board.new(blank_board) }
 
@@ -29,6 +29,20 @@ describe Board do
       it "returns the remaining 6 cells" do
         expect(board.blank_cells.count).to eq(6)
       end
+    end
+  end
+
+  describe ".blank_board?" do
+    context 'blank board' do
+      let(:board) { Board.new(blank_board) }
+
+      it { expect(board.blank_board?).to eq(true) }
+    end
+
+    context 'non blank board' do
+      let(:board) { Board.new(winning_row) }
+
+      it { expect(board.blank_board?).to eq(false) }
     end
   end
 

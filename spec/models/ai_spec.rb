@@ -10,19 +10,6 @@ describe Ai do
   end
 
   describe ".generate_move_for_game" do
-    context "blank board" do
-      let(:game) { Game.new(blank_board, "o") }
-      let(:ai)   { game.ai }
-
-      it "places the piece at 0,0" do
-        expect(ai.generate_move_for_game(game)).to eq({
-          "row"  => 0, 
-          "col"  => 0, 
-          "value"=> "o"
-        })
-      end
-    end
-
     context "player first move @ 0,0" do
       let(:game) { Game.new(player_first_move, "o") }
       let(:ai)   { game.ai }

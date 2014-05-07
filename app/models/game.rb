@@ -9,12 +9,16 @@ class Game
   end
 
   def perfect_move
-    if draw?
-      { "winner" => nil, "draw" => draw?, "move" => nil }
+    if board.blank_board?
+      { "winner" => winner, "draw" => draw?, "move" => random_move}
     else
-      move   = ai.generate_move_for_game(self)
-      result = next_game_state([move["row"], move["col"]])
-      { "winner" => result.winner, "draw" => result.draw?, "move" => move }
+      if draw?
+        { "winner" => nil, "draw" => draw?, "move" => nil }
+      else
+        move   = ai.generate_move_for_game(self)
+        result = next_game_state([move["row"], move["col"]])
+        { "winner" => result.winner, "draw" => result.draw?, "move" => move }
+      end
     end
   end
 
@@ -54,5 +58,14 @@ class Game
 
   def defeat?(piece)
     !draw? && !board.winning_move_for?(piece)
+  end
+
+  private
+  def random_move
+    { 
+      "row" => rand(board.size), 
+      "col" => rand(board.size), 
+      "value" => player_piece 
+    }
   end
 end
