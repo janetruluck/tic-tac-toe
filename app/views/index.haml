@@ -1,0 +1,48 @@
+.row
+  .col-md-12
+    .row
+      .col-md-12
+        %h2.text-center
+          Unbeatable Tic Tac Toe!
+    .row
+      .col-md-12
+        %h5.instruction.text-center
+          Choose Who Starts with the buttons on the left and right. Restart by pressing again.
+    .row
+      .col-md-2.text-center
+        %button.btn.btn-primary.start{ "data" => { "player" => "human", "toggle" => "button" }}
+          %i{ :class => "fa fa-user fa-lg" }
+          \ Human
+      .col-md-8
+        .alert.alert-info.status-header.text-center
+          GAME INFO
+      .col-md-2.text-center
+        %button.btn.btn-primary.start{ "data" => { "ai" => "human", "toggle" => "button" }}
+          .fa-stack
+            %i.fa.fa-desktop.fa-stack-2x
+            %i.fa.fa-cog.fa-spin.fa-stack-1x
+          \ AI
+.row
+  .col-md-8.col-md-offset-2
+    .well.game-board-grid
+      .row
+        .col-md-4{ :data => { "grid-row" => 0, "grid-col" => 0 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 0, "grid-col" => 1 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 0, "grid-col" => 2 } }
+          %i.fa.fa-5x
+      .row
+        .col-md-4{ :data => { "grid-row" => 1, "grid-col" => 0 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 1, "grid-col" => 1 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 1, "grid-col" => 2 } }
+          %i.fa.fa-5x
+      .row
+        .col-md-4{ :data => { "grid-row" => 2, "grid-col" => 0 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 2, "grid-col" => 1 } }
+          %i.fa.fa-5x
+        .col-md-4{ :data => { "grid-row" => 2, "grid-col" => 2 } }
+          %i.fa.fa-5x

@@ -1,0 +1,32 @@
+.fa-stack {
+  .fa-spin {
+    display: none;
+    top: -6px;
+    left: 1px;
+  }
+}
+.game-board-grid {
+  .row {
+    height: 205px;
+    
+    &:not(:last-child){
+      border-bottom: 3px solid #a2a2a2;
+    }
+
+    .col-md-4 {
+      height: 100%;
+
+      &:not(:last-child){
+        border-right: 3px solid #a2a2a2;
+      }
+
+      i {
+        &.fa {
+          top: 55px;
+          position: relative;
+          left: 70px;
+        } 
+      }
+    }
+  }
+}
