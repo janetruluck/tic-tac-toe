@@ -21,7 +21,6 @@ class App < Sinatra::Base
   assets do
     serve '/js', from: 'assets/javascripts'
     serve '/css', from: 'assets/stylesheets'
-    serve '/img', from: 'assets/images'
 
     js :application, [
       "/js/game.js"
