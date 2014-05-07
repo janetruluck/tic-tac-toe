@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %link{ :href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel => "stylesheet" }
+    = css :app
+    %script{ :src => "//code.jquery.com/jquery-2.1.1.min.js" }
+    = js :application
+  %body
+    .container
+      = yield
